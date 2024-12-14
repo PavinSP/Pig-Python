@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Game - Player Turn</title>
+</head>
+<body>
+    <h1>Player {{ player }}'s Turn</h1>
+    <p>Current Total Score: {{ score }}</p>
+    {% if roll %}
+        <p>You rolled a {{ roll }}!</p>
+        {% if bust %}
+            <p>You rolled a 1! Your turn is over, and you lost this round's points.</p>
+        {% endif %}
+    {% endif %}
+    <form method="POST">
+        <button name="roll" type="submit">Roll</button>
+        <button name="hold" type="submit">Hold</button>
+    </form>
+</body>
+</html>

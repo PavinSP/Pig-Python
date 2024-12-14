@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Game</title>
+</head>
+<body>
+    <h1>Dice Game</h1>
+    <h2>Player {{ current_player }}'s Turn</h2>
+    {% if rolled %}
+        <p>You rolled: {{ rolled }}</p>
+        {% if rolled == 1 %}
+            <p>You lost your turn!</p>
+        {% else %}
+            <p>Current round score: {{ current_score }}</p>
+        {% endif %}
+    {% endif %}
+    <p>Player Scores:</p>
+    <ul>
+        {% for score in scores %}
+            <li>Player {{ loop.index }}: {{ score }}</li>
+        {% endfor %}
+    </ul>
+    <form action="/roll" method="post">
+        <button type="submit">Roll</button>
+    </form>
+    <form action="/hold" method="post">
+        <button type="submit">Hold</button>
+    </form>
+</body>
+</html>
